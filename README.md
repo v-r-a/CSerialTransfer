@@ -11,7 +11,7 @@ The Syntax is nearly identical to the arduino version, with a few exceptions:
     SerialTransfer::SerialTransfer(const char *device, int baudRate, functionPtr _callbacks = NULL, uint8_t _callbacksLen = 0) 
     
     With device usually being some version of /dev/ttyeACM0 on linux and accepted
-    baudrates being : 9600, 19200, 38400, 115200
+    baudrates being : 9600, 19200, 38400, 115200 and 1000000.
     
 example:
   SerialTransfer::SerialTransfer myTransfer("/dev/ttyACM0", 19200, callbacks, callbacksLen);
@@ -23,5 +23,7 @@ example:
     int num;}
    The above sent from an arduino is 5 bytes, while sent from a 32 bit machine is 8 bytes.
    
-  
+  __________________
+  A few more tips regarding configuring the FTDI USB driver to achieve real-time communication performance:
+  (to be added soon)
   
