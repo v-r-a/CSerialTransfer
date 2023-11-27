@@ -1,4 +1,5 @@
-Notes:
+A few learnings regarding configuring the FTDI USB driver to achieve real-time communication performance:
+
 For real-time communication performance through USB 2.0 ports, the following settings have been tested. The following settings are available only for FT232R (e.g., USB to RS485 converter or USB to UART converter) based USB-to-serial bridges. Other USB-to-serial ICs, such as CH340, do not have extensive settings in the driver software.
 
 READING INCOMING DATA:
@@ -47,7 +48,5 @@ example:
     int num;}
    The above sent from an arduino is 5 bytes, while sent from a 32 bit machine is 8 bytes.
    
-  __________________
-  A few more tips regarding configuring the FTDI USB driver to achieve real-time communication performance:
-  (to be added soon)
+
   
