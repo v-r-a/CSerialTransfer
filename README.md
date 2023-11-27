@@ -23,6 +23,8 @@ A USB frame occurs every 1ms. We may not be able to write any faster than that, 
 BAUD RATE:
 I have tested the communication at 1M baud rate. It works fine with Arduino Uno/ Nano/ Mega.
 
+
+Find all the details of FTDI USB driver in [this](https://github.com/v-r-a/CSerialTransfer/blob/master/AN232B-04_DataLatencyFlow.pdf) pdf
 # CSerialTransfer
 Linux Serial Transfer Library adapted from PowerBrokers SerialTransfer as mirror library.
 
