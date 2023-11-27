@@ -7,18 +7,20 @@ The best real-time reading performance can be achieved if the incoming packet si
 Set the USB0 port eventchar to 129+256=385 (10000001 marks the end of the packet) to flush immediately on packet receipt. Read [here](https://superuser.com/questions/411616/how-to-enable-and-set-event-characters-for-ftdi-drivers).
 
 Set it by running the following commands in the Linux terminal. Replace /ttyUSB0 by name of the USB port in use. (see connected devices by: ls /dev/ttyUSB* command):
-sudo -i
-echo 385 > /sys/bus/usb-serial/devices/ttyUSB0/event_char
+
+`sudo -i`
+
+`echo 385 > /sys/bus/usb-serial/devices/ttyUSB0/event_char`
 
 Low latency may not be always better due to the way FTDI USB driver software is written. Either leave it to the default of 16ms or slightly lower, down to 4 ms, say.
 Setting the USB0 port latency_timer to 10ms (change the port name appropriately):
-echo 10 | sudo tee /sys/bus/usb-serial/devices/ttyUSB0/latency_timer
+`echo 10 | sudo tee /sys/bus/usb-serial/devices/ttyUSB0/latency_timer`
 
 WRITING DATA:
 A USB frame occurs every 1ms. We may not be able to write any faster than that, i.e., we can send a data packet every 1ms. Set your packet size and baud rate so that packet transmission is over well within 1ms if you want to send commands at 1kHz. Further, the OS scheduler can delay the task, and the packet may not be sent in the next USB frame. You may try increasing the process priority etc, at your own risk.
 
 BAUD RATE:
-I have tested the communication at 1M baud rate. It works fine.
+I have tested the communication at 1M baud rate. It works fine with Arduino Uno/ Nano/ Mega.
 
 # CSerialTransfer
 Linux Serial Transfer Library adapted from PowerBrokers SerialTransfer as mirror library.
